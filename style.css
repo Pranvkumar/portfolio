@@ -880,6 +880,18 @@ section {
     margin: 0;
 }
 
+.contact-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.contact-link:hover {
+    color: var(--secondary-color);
+    transform: translateX(5px);
+}
+
 .contact-form {
     background: var(--card-bg);
     padding: 2rem;

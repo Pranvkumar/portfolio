@@ -45,9 +45,9 @@
                 <a href="#contact" class="btn btn-secondary">Contact Me</a>
             </div>
             <div class="social-links">
-                <a href="https://github.com/Pranvkumar" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/pranvkumar" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:pranvkumar@example.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/Pranvkumar" target="_blank" title="GitHub Profile"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/pranvkumar-suhas-kshirsagar-348b04325/" target="_blank" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:pranavkshirsagar.409@gmail.com" title="Send Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
         <div class="hero-background">
@@ -402,7 +402,7 @@ GPU Memory: 3.24GB allocated, 4.12GB reserved
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <p>pranvkumar@example.com</p>
+                                <a href="mailto:pranavkshirsagar.409@gmail.com" target="_blank" class="contact-link">pranavkshirsagar.409@gmail.com</a>
                             </div>
                         </div>
                         
@@ -410,7 +410,7 @@ GPU Memory: 3.24GB allocated, 4.12GB reserved
                             <i class="fab fa-github"></i>
                             <div>
                                 <h4>GitHub</h4>
-                                <p>github.com/Pranvkumar</p>
+                                <a href="https://github.com/Pranvkumar" target="_blank" class="contact-link">github.com/Pranvkumar</a>
                             </div>
                         </div>
                         
@@ -418,22 +418,22 @@ GPU Memory: 3.24GB allocated, 4.12GB reserved
                             <i class="fab fa-linkedin"></i>
                             <div>
                                 <h4>LinkedIn</h4>
-                                <p>linkedin.com/in/pranvkumar</p>
+                                <a href="https://www.linkedin.com/in/pranvkumar-suhas-kshirsagar-348b04325/" target="_blank" class="contact-link">View Profile</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form id="contactForm" action="mailto:pranavkshirsagar.409@gmail.com" method="POST" enctype="text/plain">
                         <div class="form-group">
-                            <input type="text" id="name" placeholder="Your Name" required>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" placeholder="Your Email" required>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
