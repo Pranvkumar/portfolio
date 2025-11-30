@@ -1,5 +1,7 @@
 # Personal Portfolio - Pranvkumar
 
+🌐 **Live Demo:** [https://pranvkumar.github.io/portfolio/](https://pranvkumar.github.io/portfolio/)
+
 A modern, responsive portfolio website showcasing my expertise in AI/ML, Backend Development, Database Engineering, and Full-Stack Development.
 
 ## 🌟 Features
@@ -96,15 +98,15 @@ python gpu_training_demo.py
 
 ## 🛠️ Local Development
 
-### Setup
+### Quick Start
 
-1. Clone the repository:
+1. **Clone the repository:**
 ```bash
 git clone https://github.com/Pranvkumar/portfolio.git
 cd portfolio
 ```
 
-2. Open in browser:
+2. **Run locally:**
 ```bash
 # Using Python's built-in server
 python -m http.server 8000
@@ -112,7 +114,7 @@ python -m http.server 8000
 # Or simply open index.html in your browser
 ```
 
-3. Visit `http://localhost:8000` in your browser
+3. **Visit:** `http://localhost:8000`
 
 ### Customization
 
@@ -173,31 +175,30 @@ Replace placeholder links in `index.html`:
 
 ## ⚡ Performance
 
-- Minimal dependencies (vanilla JavaScript)
-- Optimized animations with CSS transforms
-- Lazy loading for images (to be implemented)
-- Lighthouse score target: 90+
+- ✅ Vanilla JavaScript (no frameworks, lightweight)
+- ✅ Optimized CSS animations with GPU acceleration
+- ✅ Responsive images and modern design
+- ✅ Fast loading times
+- ✅ Mobile-optimized
+
+## 📱 Responsive Design
+
+- **Desktop**: 1200px and above - Full featured experience
+- **Tablet**: 768px - 1199px - Optimized layout
+- **Mobile**: Below 768px - Touch-friendly interface
 
 ## 🚀 Deployment
 
-### GitHub Pages
-```bash
-# Enable GitHub Pages in repository settings
-# Select branch: main
-# Folder: / (root)
-```
+This portfolio is deployed on **GitHub Pages** at:
+**[https://pranvkumar.github.io/portfolio/](https://pranvkumar.github.io/portfolio/)**
 
-### Netlify
-```bash
-# Connect GitHub repository
-# Build command: (none)
-# Publish directory: /
-```
+### Deploy Your Own
 
-### Vercel
-```bash
-vercel --prod
-```
+1. Fork this repository
+2. Update contact information in `index.html`
+3. Enable GitHub Pages in Settings → Pages
+4. Choose branch `main` and folder `/`
+5. Your site will be live at `https://yourusername.github.io/portfolio/`
 
 ## 📈 Future Enhancements
 
@@ -218,20 +219,19 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👤 Author
 
-**Pranvkumar**
+**Pranvkumar Suhas Kshirsagar**
 
-- GitHub: [@Pranvkumar](https://github.com/Pranvkumar)
-- LinkedIn: [Pranvkumar Kshirsagar](https://linkedin.com/in/pranvkumar-kshirsagar)
-- Email: pranvkumar.k@example.com
+- 🌐 Portfolio: [pranvkumar.github.io/portfolio](https://pranvkumar.github.io/portfolio/)
+- 💼 LinkedIn: [Pranvkumar Suhas Kshirsagar](https://www.linkedin.com/in/pranvkumar-suhas-kshirsagar-348b04325/)
+- 🐙 GitHub: [@Pranvkumar](https://github.com/Pranvkumar)
+- 📧 Email: pranavkshirsagar.409@gmail.com
 
 ## 🙏 Acknowledgments
 
 - Font: Google Fonts (Poppins)
-- Icons: Font Awesome (optional, can be added)
+- Icons: Font Awesome
 - Inspiration: Modern portfolio design trends
 
 ---
-
-**Note**: This portfolio is currently in the private repository. It will be moved to a separate public repository when ready for deployment.
 
 **Last Updated**: November 30, 2025
