@@ -6,8 +6,37 @@
     <title>Pranvkumar - Full Stack Developer & AI/ML Engineer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Three.js for 3D graphics -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- GSAP for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Vanilla Tilt for 3D card effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 </head>
 <body>
+    <!-- 3D Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="loader-cube">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face right"></div>
+                <div class="face left"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+            <p class="loading-text">Loading Experience...</p>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -33,6 +62,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
+            <div class="hero-3d-element" id="hero-3d"></div>
             <h1 class="glitch" data-text="Pranvkumar">Pranvkumar</h1>
             <div class="typewriter">
                 <h2>I'm a <span class="typed-text"></span><span class="cursor">&nbsp;</span></h2>
@@ -41,58 +71,81 @@
                 Full Stack Developer | AI/ML Engineer | Database Architect
             </p>
             <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                <a href="#projects" class="btn btn-primary magnetic-btn">
+                    <span class="btn-text">View My Work</span>
+                    <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="#contact" class="btn btn-secondary magnetic-btn">
+                    <span class="btn-text">Contact Me</span>
+                    <span class="btn-icon"><i class="fas fa-envelope"></i></span>
+                </a>
             </div>
             <div class="social-links">
-                <a href="https://github.com/Pranvkumar" target="_blank" title="GitHub Profile"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/pranvkumar-suhas-kshirsagar-348b04325/" target="_blank" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:pranavkshirsagar.409@gmail.com" title="Send Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/Pranvkumar" target="_blank" title="GitHub Profile" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/pranvkumar-suhas-kshirsagar-348b04325/" target="_blank" title="LinkedIn Profile" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:pranavkshirsagar.409@gmail.com" title="Send Email" class="social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <p>Scroll Down</p>
             </div>
         </div>
         <div class="hero-background">
-            <div class="particle" style="--x: 20%; --y: 30%; --duration: 15s;"></div>
-            <div class="particle" style="--x: 80%; --y: 70%; --duration: 20s;"></div>
-            <div class="particle" style="--x: 50%; --y: 50%; --duration: 25s;"></div>
-            <div class="particle" style="--x: 10%; --y: 80%; --duration: 18s;"></div>
-            <div class="particle" style="--x: 90%; --y: 20%; --duration: 22s;"></div>
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title reveal-text">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Hello! I'm Pranvkumar</h3>
-                    <p>
+                    <h3 class="reveal-text">Hello! I'm Pranvkumar</h3>
+                    <p class="reveal-text">
                         A passionate developer with expertise in Full Stack Development, AI/ML Engineering, 
                         and Database Architecture. I love building innovative solutions that solve real-world problems.
                     </p>
-                    <p>
+                    <p class="reveal-text">
                         My journey in technology spans across multiple domains - from developing intelligent 
                         machine learning models using cutting-edge GPU computing to architecting robust backend 
                         systems and optimizing complex database structures.
                     </p>
                     <div class="stats">
-                        <div class="stat-item">
-                            <h4>15+</h4>
+                        <div class="stat-item tilt-card" data-tilt data-tilt-scale="1.05">
+                            <h4 class="counter" data-target="15">0</h4>
                             <p>Projects Completed</p>
                         </div>
-                        <div class="stat-item">
-                            <h4>10+</h4>
+                        <div class="stat-item tilt-card" data-tilt data-tilt-scale="1.05">
+                            <h4 class="counter" data-target="10">0</h4>
                             <p>AI/ML Models</p>
                         </div>
-                        <div class="stat-item">
-                            <h4>5+</h4>
+                        <div class="stat-item tilt-card" data-tilt data-tilt-scale="1.05">
+                            <h4 class="counter" data-target="5">0</h4>
                             <p>Full Stack Apps</p>
                         </div>
                     </div>
                 </div>
                 <div class="about-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-code"></i>
+                    <div class="image-container">
+                        <div class="image-placeholder morphing-shape">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="orbit-ring ring-1"></div>
+                        <div class="orbit-ring ring-2"></div>
+                        <div class="orbit-ring ring-3"></div>
+                        <div class="orbit-icon icon-1"><i class="fab fa-python"></i></div>
+                        <div class="orbit-icon icon-2"><i class="fab fa-react"></i></div>
+                        <div class="orbit-icon icon-3"><i class="fas fa-database"></i></div>
+                        <div class="orbit-icon icon-4"><i class="fas fa-brain"></i></div>
                     </div>
                 </div>
             </div>
@@ -102,12 +155,17 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
+            <h2 class="section-title reveal-text">Technical Skills</h2>
+            
+            <div class="skills-3d-container">
+                <canvas id="skills-sphere"></canvas>
+            </div>
             
             <div class="skills-category">
-                <h3><i class="fas fa-brain"></i> AI/ML & Data Science</h3>
+                <h3 class="reveal-text"><i class="fas fa-brain"></i> AI/ML & Data Science</h3>
                 <div class="skills-grid">
-                    <div class="skill-card">
+                    <div class="skill-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="skill-glow"></div>
                         <div class="skill-icon"><i class="fas fa-robot"></i></div>
                         <h4>Machine Learning</h4>
                         <div class="skill-tags">
@@ -117,11 +175,13 @@
                             <span>Keras</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 90%"></div>
+                            <div class="progress" data-width="90" style="width: 0%"></div>
                         </div>
+                        <span class="progress-label">90%</span>
                     </div>
                     
-                    <div class="skill-card">
+                    <div class="skill-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="skill-glow"></div>
                         <div class="skill-icon"><i class="fas fa-eye"></i></div>
                         <h4>Computer Vision</h4>
                         <div class="skill-tags">
@@ -131,11 +191,13 @@
                             <span>Image Processing</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 85%"></div>
+                            <div class="progress" data-width="85" style="width: 0%"></div>
                         </div>
+                        <span class="progress-label">85%</span>
                     </div>
                     
-                    <div class="skill-card">
+                    <div class="skill-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="skill-glow"></div>
                         <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
                         <h4>Data Analysis</h4>
                         <div class="skill-tags">
@@ -145,11 +207,13 @@
                             <span>Seaborn</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 88%"></div>
+                            <div class="progress" data-width="88" style="width: 0%"></div>
                         </div>
+                        <span class="progress-label">88%</span>
                     </div>
 
-                    <div class="skill-card">
+                    <div class="skill-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="skill-glow"></div>
                         <div class="skill-icon"><i class="fas fa-microchip"></i></div>
                         <h4>GPU Computing</h4>
                         <div class="skill-tags">
@@ -159,16 +223,18 @@
                             <span>Parallel Processing</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 80%"></div>
+                            <div class="progress" data-width="80" style="width: 0%"></div>
                         </div>
+                        <span class="progress-label">80%</span>
                     </div>
                 </div>
             </div>
 
             <div class="skills-category">
-                <h3><i class="fas fa-server"></i> Backend Development</h3>
+                <h3 class="reveal-text"><i class="fas fa-server"></i> Backend Development</h3>
                 <div class="skills-grid">
-                    <div class="skill-card">
+                    <div class="skill-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="skill-glow"></div>
                         <div class="skill-icon"><i class="fab fa-python"></i></div>
                         <h4>Python & Frameworks</h4>
                         <div class="skill-tags">
@@ -178,11 +244,13 @@
                             <span>REST APIs</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 92%"></div>
+                            <div class="progress" data-width="92" style="width: 0%"></div>
                         </div>
+                        <span class="progress-label">92%</span>
                     </div>
                     
-                    <div class="skill-card">
+                    <div class="skill-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="skill-glow"></div>
                         <div class="skill-icon"><i class="fab fa-node-js"></i></div>
                         <h4>JavaScript Backend</h4>
                         <div class="skill-tags">
@@ -192,16 +260,18 @@
                             <span>GraphQL</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 85%"></div>
+                            <div class="progress" data-width="85" style="width: 0%"></div>
                         </div>
+                        <span class="progress-label">85%</span>
                     </div>
                 </div>
             </div>
 
             <div class="skills-category">
-                <h3><i class="fas fa-database"></i> Database & DevOps</h3>
+                <h3 class="reveal-text"><i class="fas fa-database"></i> Database & DevOps</h3>
                 <div class="skills-grid">
-                    <div class="skill-card">
+                    <div class="skill-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="skill-glow"></div>
                         <div class="skill-icon"><i class="fas fa-database"></i></div>
                         <h4>SQL Databases</h4>
                         <div class="skill-tags">
@@ -211,11 +281,13 @@
                             <span>Query Optimization</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 90%"></div>
+                            <div class="progress" data-width="90" style="width: 0%"></div>
                         </div>
+                        <span class="progress-label">90%</span>
                     </div>
                     
-                    <div class="skill-card">
+                    <div class="skill-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="skill-glow"></div>
                         <div class="skill-icon"><i class="fas fa-cloud"></i></div>
                         <h4>Cloud & Tools</h4>
                         <div class="skill-tags">
@@ -225,16 +297,18 @@
                             <span>Linux</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 82%"></div>
+                            <div class="progress" data-width="82" style="width: 0%"></div>
                         </div>
+                        <span class="progress-label">82%</span>
                     </div>
                 </div>
             </div>
 
             <div class="skills-category">
-                <h3><i class="fas fa-palette"></i> Frontend Development</h3>
+                <h3 class="reveal-text"><i class="fas fa-palette"></i> Frontend Development</h3>
                 <div class="skills-grid">
-                    <div class="skill-card">
+                    <div class="skill-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                        <div class="skill-glow"></div>
                         <div class="skill-icon"><i class="fab fa-react"></i></div>
                         <h4>Modern Frontend</h4>
                         <div class="skill-tags">
@@ -244,8 +318,9 @@
                             <span>JavaScript</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 87%"></div>
+                            <div class="progress" data-width="87" style="width: 0%"></div>
                         </div>
+                        <span class="progress-label">87%</span>
                     </div>
                 </div>
             </div>
@@ -255,15 +330,30 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title reveal-text">Featured Projects</h2>
             
             <!-- Filter Buttons -->
             <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="ai">AI/ML</button>
-                <button class="filter-btn" data-filter="backend">Backend</button>
-                <button class="filter-btn" data-filter="database">Database</button>
-                <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                <button class="filter-btn active magnetic-btn" data-filter="all">
+                    <span class="filter-icon"><i class="fas fa-th-large"></i></span>
+                    All Projects
+                </button>
+                <button class="filter-btn magnetic-btn" data-filter="ai">
+                    <span class="filter-icon"><i class="fas fa-brain"></i></span>
+                    AI/ML
+                </button>
+                <button class="filter-btn magnetic-btn" data-filter="backend">
+                    <span class="filter-icon"><i class="fas fa-server"></i></span>
+                    Backend
+                </button>
+                <button class="filter-btn magnetic-btn" data-filter="database">
+                    <span class="filter-icon"><i class="fas fa-database"></i></span>
+                    Database
+                </button>
+                <button class="filter-btn magnetic-btn" data-filter="fullstack">
+                    <span class="filter-icon"><i class="fas fa-layer-group"></i></span>
+                    Full Stack
+                </button>
             </div>
 
             <div class="projects-grid" id="projectsGrid">
